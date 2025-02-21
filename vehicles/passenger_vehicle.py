@@ -1,9 +1,13 @@
+from .fueled import Fueled
 from .vehicle import Vehicle
+from .ground_vehicle import GroundVehicle
 
-class PassengerVehicle(Vehicle):
+class PassengerVehicle(Vehicle, Fueled, GroundVehicle):
 
-    def __init__(self, max_count, make, model, year, mileage, current_fuel, fuel_type):
-        super().__init__(max_count, make, model, year, current_fuel, fuel_type)
+    def __init__(self, max_count, make, model, year, mileage, current_fuel, fuel_type, ground_speed):
+        Vehicle.__init__(self, max_count, make, model, year)
+        Fueled.__init__(self, current_fuel, fuel_type)
+        GroundVehicle.__init__(self, ground_speed)
         self.mileage = mileage
 
     def drive(self, start_loc, end_loc, distance):

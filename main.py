@@ -1,14 +1,11 @@
+from vehicles import PassengerVehicle, Jetski, Pontoon, RowBoat
 
-# 3. Small boats
-# 4. Small planes
-# 5. Motorocycles
-
-from vehicles import PassengerVehicle, Jetski
-
-minivan = PassengerVehicle( 8, "Chrysler", "Pacifica", 2025, 0, 20, "Regular" )
-crossover = PassengerVehicle( 5, "Chrysler", "PT Cruiser", 1995, 100, 5, "Regular" )
+minivan   = PassengerVehicle( 8, "Chrysler", "Pacifica", 2025, 0, 20, "Regular", 110 )
+crossover = PassengerVehicle( 5, "Chrysler", "PT Cruiser", 1995, 100, 5, "Regular", 120 )
+floater = Pontoon(4, "Brigade", "Zoomer", 1991, 1, "Regular", 1.5)
+dinghy = RowBoat(3, "Kizana", "Glarg", 2025, 0.3)
 jetski = Jetski(
-        max_count= 2,
+        max_count=2,
         cc=1000,
         fuel_type="Premium",
         make="Ford",
@@ -21,4 +18,6 @@ jetski = Jetski(
 minivan.drive("Tokyo", "Baltimore", 1800)
 crossover.drive("Nashville", "Memphis", 200)
 jetski.drive("Corolla", "Charleston", 60)
+floater.drive("Pier West", "Pier East", 4)
+dinghy.row("Camp", "Rope Swing", 0.3)
 

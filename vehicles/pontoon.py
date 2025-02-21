@@ -1,13 +1,12 @@
 from .vehicle import Vehicle
+from .marine_vehicles import MarineVehicle
 from .fueled import Fueled
 
-class Jetski(Vehicle):
-
-    def __init__(self, max_count, cc, make, model, year, mileage, current_fuel, fuel_type):
+class Pontoon(Vehicle, Fueled, MarineVehicle):
+    def __init__(self, max_count, make, model, year, current_fuel, fuel_type, water_speed):
         Vehicle.__init__(self, max_count, make, model, year)
         Fueled.__init__(self, current_fuel, fuel_type)
-        self.mileage = mileage
-        self.cc = cc
+        MarineVehicle.__init__(self, water_speed)
 
     def drive(self, start_loc, end_loc, distance):
         self.trips.append(
